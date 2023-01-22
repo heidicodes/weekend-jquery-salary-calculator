@@ -1,4 +1,6 @@
-$(document).ready(onReady);
+$(document).ready(onReady); {
+        $("tr:even").css("background-color", "#000000");
+};
 console.log();
 
 // STATE //
@@ -43,6 +45,7 @@ function onReady() {
 // Handling new employee form
     $('#newEmpForm').on('submit', addEmployee);
     $(document).on('click', '.deleteEmpBtn', deleteEmployee);
+    // ---->  $('#emp-table').on('submit', totalMonthlyCosts);
 }
 
 function deleteEmployee() {
@@ -75,47 +78,47 @@ function addEmployee(evt) {
         salary: $('#annualSalary').val(),
     }
 
-    //console.log('first name', firstName, lastName);
+    // logging new employees to check 
     console.log('Here are the new employees:', newEmployee)
 
 
 // adding employee to employee object
 employees.push(newEmployee);
 
-//$('#emp-table').empty();
 // render with the new employees in the array
 render();
 }
-console.log();
 
 
 function totalMonthlyCosts() {
 
     let totalSalary = 0;
     for (let employee of employees) {
-        totalSalary += employee.salary
+        totalSalary += Number(employee.salary)
     }
-    let totalMonthlySalary = totalSalary / 12;
-    console.log(totalMonthlySalary, totalSalary);
-
-    return formatter.format (totalMonthlySalary);
+    let monthlyCosts = totalSalary / 12;
+    return(monthlyCosts);
 }
-
 // RENDER //
 function render() {
-    
-    console.log(`Here's my render`, employees)
+    console.log(`Here's my render`)
+
+    if (totalMonthlyCosts() > 20000) {
+       $('#monthlyCosts').addClass('redError')
+    } else {
+      $('#monthlyCosts').removeClass('redError')
+    };
+
     $('#emp-table').empty();
 
     for (let employee of employees) {
-        // logs 
         // console.log('for employee', employee.firstName);
 
 console.log($('#emp-table'))
     $('#emp-table').append(`
         <tr>
             <td>${employee.firstName}</td>
-            <td>${employee.lastName}</td>
+            <td class="even">${employee.lastName}</td>
             <td>${employee.idNumber}</td>
             <td>${employee.jobTitle}</td>
             <td>${formatter.format(employee.salary)}</td>
@@ -124,6 +127,12 @@ console.log($('#emp-table'))
             </td>
         </tr>
     `);
-    $('#monthlyCosts').text(`Total Monthly Costs: ${totalMonthlyCosts()}`);
+    $('#monthlyCosts').text(`Total Monthly Costs: ${formatter.format(totalMonthlyCosts())}`);
     }
+    $('#empFirstName').val('');
+    $('#empLastName').val('');
+    $('#idNumber').val('');
+    $('#jobTitle').val('');
+    $('#annualSalary').val('');
 }
+

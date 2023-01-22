@@ -5,15 +5,59 @@ h1 {
 
 h3 {
     text-align: right;
+    font-style: italic;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
 }
 
+/*.th {
+    background-color: #b90bb9;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 90%;
+    border-bottom: 2px solid #111111;
+    border-top: 1px solid 999;
+    text-align: left;
+}
 
-.tr { 
-    border-color: rgb(159, 159, 157) ;
+tbody { 
+    background-color: #efefef;
+    border-color: rgb(91, 91, 70) ;
     border-style: solid;
     border: 4px;
     margin: 3;
     padding: 2px;
-    text-align: center;
+    text-align: left;
+} */
+
+table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    min-width: 400px;
+}
+
+thead tr {
+    background-color: #951f1f;
+    color: white;
+    text-align: left;
+    font-weight: bold;
+}
+th, td {
+    padding: 12px 15px;
+}
+
+tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3 ;
+}
+
+tbody tr:last-of-type {
+    border-bottom: 2px solid #951f1f;
+}
+
+.redError {
+    background-color: #951f1f;
 }
