@@ -6,9 +6,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>weekend-jquery-salary-calculator</title>
     <script src="./scripts/jquery.js"></script>
-    <script src="./scripts.js/app.js"></script>
+    <script src="./scripts/app.js"></script>
+     
+    <link rel="stylesheet" href=".//style/style.css">
 </head>
+<h1>lorem ipsum</h1>
 <body>
-    
+    <div>
+    <h3>Employee</h3>
+    </div>
+
+    <form id="newEmpForm">
+        <input name="firstName" id="empFirstName" placeholder="First" type="text"/>
+        <input name="lastName" id="empLastName" placeholder="Last" type="text"/>
+        <input name="idNumber" id="idNumber" placeholder="Employee ID" type="number"/>
+        <input name="jobTitle" id="jobTitle" placeholder="Job Title" type="text"/>
+        <input name="salary" id="annualSalary" placeholder="Annual Salary" type="number"/>
+        <div>
+            <input id="empSubmit" type="submit" value="Submit"/>
+        </div>
+    </form>
+
+    <table>
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>ID</th>
+                <th>title</th>
+                <th>Annual Salary</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody id="emp-table">
+            <!-- 👆This is table rows -->
+        </tbody>
+    </table>
+    <div>
+    <h3 name="monthlyCosts" id="monthlyCosts"></h3> <!-- Total Monthly Costs here -->
+    </div>
 </body>
 </html>
+
+
+<!-- _employee first name, last name, ID number, job title, annual salary_ -->
+<!-- onfocusout="exampleFunction()-->
