@@ -1,46 +1,46 @@
 h1 {
     text-align: center;
-    font-family:Arial, Helvetica, sans-serif;
+    font-family: sans-serif;
 }
 
 h3 {
     text-align: right;
     font-style: italic;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+    font-family: sans-serif;
+}
+h4 {
+    font-family: sans-serif;
 }
 
-/*.th {
-    background-color: #b90bb9;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    font-size: 90%;
-    border-bottom: 2px solid #111111;
-    border-top: 1px solid 999;
+#newEmpForm {
     text-align: left;
+    width: 100%;
+    padding: 2px 10px;
+    margin: 2px 0;
+    box-sizing: border-box;
 }
 
-tbody { 
-    background-color: #efefef;
-    border-color: rgb(91, 91, 70) ;
-    border-style: solid;
-    border: 4px;
-    margin: 3;
-    padding: 2px;
-    text-align: left;
-} */
+#empSubmit {
+    padding: 2px 10px;
+    margin: 2px 0;
+}
 
 table {
     border-collapse: collapse;
     margin: 25px 0;
     font-size: 0.9em;
     min-width: 400px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
 thead tr {
-    background-color: #951f1f;
+    background-color: #a62121;
     color: white;
     text-align: left;
     font-weight: bold;
+    font-family: sans-serif;
 }
 th, td {
     padding: 12px 15px;
@@ -55,9 +55,9 @@ tbody tr:nth-of-type(even) {
 }
 
 tbody tr:last-of-type {
-    border-bottom: 2px solid #951f1f;
+    border-bottom: 2px solid #a62121;
 }
 
 .redError {
-    background-color: #951f1f;
+    background-color: #a62121;
 }
