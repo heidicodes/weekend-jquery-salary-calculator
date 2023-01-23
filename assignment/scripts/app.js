@@ -1,15 +1,13 @@
 $(document).ready(onReady); {
-        $("tr:even").css("background-color", "#000000");
 };
-console.log();
 
 // STATE //
-
 const formatter = new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD',
 });
 
+// Declaring variable with stored info in array
 let employees = [
 {
     firstName: 'Jen',
@@ -41,13 +39,13 @@ function onReady() {
     // Initial render to the DOM
     render();
 
-// Handel events here //
+// Events handling here //
 // Handling new employee form
     $('#newEmpForm').on('submit', addEmployee);
     $(document).on('click', '.deleteEmpBtn', deleteEmployee);
-    // ---->  $('#emp-table').on('submit', totalMonthlyCosts);
 }
 
+// Function to delete employee from table rows
 function deleteEmployee() {
     console.log('test');
 
@@ -59,16 +57,13 @@ function deleteEmployee() {
         render();
 }
 
-
+// function to prevent reload error
 function addEmployee(evt) {
     evt.preventDefault();
     console.log('in addEmployee', $(this));
     
-//***** TODO: *****//
-// 1. make an employee object 
-// 2. make an addEmployee function to add employees as form
 
-// FUNCTION TO ADD EMPLOYEE
+// Function to add an employee to the form 
     let newEmployee = 
     {
         firstName: $('#empFirstName').val(),
@@ -78,41 +73,45 @@ function addEmployee(evt) {
         salary: $('#annualSalary').val(),
     }
 
-    // logging new employees to check 
-    console.log('Here are the new employees:', newEmployee)
+    // logging new employees to check if working
+    // console.log('Here are the new employees:', newEmployee)
 
 
-// adding employee to employee object
+// Adding employee to employee object
 employees.push(newEmployee);
 
-// render with the new employees in the array
+// Render with the new employees in the array
 render();
-}
+} // End of addEmployee function
 
-
+//Function for the total monthly costs
 function totalMonthlyCosts() {
 
     let totalSalary = 0;
+    // for loop for new total salary
     for (let employee of employees) {
         totalSalary += Number(employee.salary)
     }
+    // Declaring new variable `monthlyCosts` & setting equal to
+    // entire annual salary / 12 months
     let monthlyCosts = totalSalary / 12;
     return(monthlyCosts);
 }
+
 // RENDER //
 function render() {
-    console.log(`Here's my render`)
-
+    console.log(`Here's my render`) // A log to check render is working
+    // if statement to add error color display based on condition
     if (totalMonthlyCosts() > 20000) {
        $('#monthlyCosts').addClass('redError')
-    } else {
+    } else {  // Removes class `redError` if doesn't meet condition
       $('#monthlyCosts').removeClass('redError')
     };
-
+    // Selecting the table to empty it
     $('#emp-table').empty();
-
+    // for loop looping  through employees
     for (let employee of employees) {
-        // console.log('for employee', employee.firstName);
+        // console.log('for employee', employee.firstName); // a log to check
 
 console.log($('#emp-table'))
     $('#emp-table').append(`
@@ -127,8 +126,13 @@ console.log($('#emp-table'))
             </td>
         </tr>
     `);
-    $('#monthlyCosts').text(`Total Monthly Costs: ${formatter.format(totalMonthlyCosts())}`);
+    // Formatting the `monthlyCosts`; calling the function to display currency accurately
+    $('#monthlyCosts').text(`
+    Total Monthly Costs: 
+    ${formatter.format(totalMonthlyCosts())}`);
     }
+    // jQuery Selectors selecting the form values and setting them to
+    // blank string to "empty" after adding new employee to table
     $('#empFirstName').val('');
     $('#empLastName').val('');
     $('#idNumber').val('');
